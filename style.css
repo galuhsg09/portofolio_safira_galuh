@@ -1,0 +1,603 @@
+/* ============================================================
+   VARIABEL WARNA & FONT
+   Ganti nilai di sini kalau mau ubah warna/tema secara global
+   (semua bagian lain di bawah otomatis ikut berubah)
+============================================================ */
+:root {
+  --navy: #0A0E2A;        /* warna navbar & footer */
+  --blue-900: #0B1E5B;
+  --blue-700: #1D4ED8;    /* biru utama (badge nama, hover tombol) */
+  --blue-600: #2563EB;    /* warna tombol "Lihat Proyek" */
+  --blue-500: #3B82F6;
+  --blue-400: #60A5FA;
+  --cyan-400: #22D3EE;    /* aksen cyan (logo, progress bar) */
+
+  --surface: #FFFFFF;       /* putih untuk background section */
+  --surface-tint: #EFF5FF;  /* biru sangat muda, untuk section Keahlian/Pendidikan */
+  --ink: #0B1130;           /* warna teks judul/gelap */
+  --ink-soft: #4B5875;      /* warna teks paragraf */
+  --ink-faint: #8891AB;     /* warna teks kecil/label */
+  --border: #DCE7FB;        /* warna garis pembatas/border tipis */
+
+  --font-display: "Space Grotesk", "Inter", sans-serif; /* font judul */
+  --font-body: "Inter", -apple-system, sans-serif;       /* font paragraf */
+
+  --header-h: 72px; /* tinggi navbar, dipakai buat hitung tinggi section full-screen & offset scroll */
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Background gradient biru di belakang navbar + hero */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(900px 600px at 85% -10%, rgba(34,211,238,0.35), transparent 60%),
+    radial-gradient(1000px 700px at -10% 10%, rgba(96,165,250,0.4), transparent 55%),
+    linear-gradient(160deg, var(--navy) 0%, var(--blue-900) 45%, var(--blue-700) 100%);
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+/* ============================================================
+   NAVBAR (header di paling atas)
+============================================================ */
+
+header {
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--navy);   /* warna dasar navbar, tanpa garis bawah */
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: #FFD400;    /* warna nama di pojok kiri navbar (kuning) */
+}
+
+nav a {
+  color: rgba(255,255,255,0.75);
+  margin-left: 26px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+nav a:hover { color: #fff; }
+
+/* Link nav aktif (section yang sedang dilihat) — diatur otomatis lewat JS di bawah */
+nav a.active {
+  color: #fff;
+  border-bottom-color: #FFD400;
+}
+
+/* Tombol hamburger — default disembunyikan, cuma muncul di layar HP (lihat media query) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Animasi hamburger jadi "X" pas menu terbuka */
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   LAYOUT DASAR (dipakai di semua section)
+============================================================ */
+
+section { padding: 90px 40px; scroll-margin-top: var(--header-h); }
+
+.section-inner { max-width: 760px; margin: 0 auto; } /* lebar maksimal konten teks */
+
+section h2 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 28px;
+  letter-spacing: -0.02em;
+}
+
+/* Wadah putih untuk semua section setelah Hero (Tentang s/d Kontak) */
+.content-sheet {
+  background: var(--surface);
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Keahlian & Pendidikan dikasih background biru muda biar beda dari section putih lainnya */
+#skills, #education { background-color: var(--surface-tint); }
+
+#skills { position: relative; overflow: hidden; }
+
+/* Lingkaran blur biru samar di pojok section Keahlian (dekorasi saja) */
+#skills::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(59,130,246,0.18), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ============================================================
+   HERO (section id="home": foto, nama, deskripsi, tombol)
+============================================================ */
+
+.hero {
+  padding: 60px 40px;
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+
+/* Foto profil */
+.hero-img {
+  width: 230px;
+  height: 230px;
+  flex-shrink: 0;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;      /* ganti ke 50% kalau mau bentuk lingkaran penuh */
+  border: 3px solid rgba(255,255,255,0.18);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+  display: block;
+}
+
+/* Label kecil "🎓 Siswa RPL" di atas nama */
+.tag {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin: 0 0 18px;
+}
+
+/* Kotak biru berisi nama (h1) */
+.name-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  background: linear-gradient(120deg, var(--blue-700), var(--blue-500));
+  padding: 14px 22px;
+  border-radius: 14px;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+  box-shadow: 0 14px 32px rgba(29,78,216,0.35);
+}
+
+/* Kata "Galuh" yang di-highlight kuning di dalam nama */
+.text-highlight { color: #FFD400; }
+
+.hero-desc {
+  font-size: 16px;
+  color: rgba(255,255,255,0.78);
+  max-width: 440px;
+  margin: 0 0 30px;
+}
+
+.hero-actions { display: flex; gap: 14px; }
+
+/* Tombol dasar (dipakai untuk "Lihat Proyek" & "Unduh CV") */
+.btn {
+  display: inline-block;
+  padding: 13px 26px;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Tombol utama: "Lihat Proyek" — solid biru flat */
+.btn-primary {
+  background: var(--blue-600);
+  color: #fff;
+  border: 1px solid var(--blue-600);
+}
+
+.btn-primary:hover {
+  background: var(--blue-700);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Tombol kedua: "Unduh CV" — outline transparan */
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover { background: rgba(255,255,255,0.16); transform: translateY(-2px); }
+
+/* ============================================================
+   TENTANG SAYA (section id="about")
+============================================================ */
+
+#about {
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  align-items: center;
+}
+
+#about p { font-size: 16px; color: var(--ink-soft); margin: 0 0 18px; }
+
+/* Badge tools (VS Code, Figma, Laragon) */
+.tool-list {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  padding: 0;
+  margin: 32px 0 0;
+}
+
+.tool-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+.tool-list img { width: 22px; height: 22px; }
+
+/* ============================================================
+   KEAHLIAN (section id="skills")
+============================================================ */
+
+.skills-lead { color: var(--ink-soft); margin: -12px 0 40px; font-size: 15px; }
+
+.skills-block { margin-bottom: 44px; position: relative; }
+.skills-block:last-child { margin-bottom: 0; }
+
+.skills-block h3 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+
+/* Grid kartu Hard Skills, otomatis menyesuaikan lebar layar */
+.skill-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* Satu kartu skill (ikon + nama + progress bar) */
+.skill-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 12px 28px rgba(29,78,216,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(29,78,216,0.14);
+}
+
+.skill-icon { width: 38px; height: 38px; flex-shrink: 0; }
+
+.skill-card-info { flex: 1; min-width: 0; }
+
+.skill-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.skill-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+/* Rel abu-abu progress bar */
+.skill-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* Isi progress bar — lebarnya diatur lewat style="width:70%" di HTML */
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-500), var(--cyan-400));
+  border-radius: 999px;
+}
+
+.skill-value { font-size: 13px; font-weight: 700; color: var(--blue-700); }
+
+/* Badge Soft Skills (Kerja Tim, Komunikasi, dst) */
+.soft-skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.soft-skills li {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--blue-700);
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 9px 18px;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(29,78,216,0.06);
+}
+
+/* ============================================================
+   PROYEK (section id="projects")
+============================================================ */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* otomatis 1-3 kolom sesuai lebar layar & jumlah proyek */
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(29,78,216,0.15);
+}
+
+.project-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+}
+
+.project-body { padding: 22px; }
+
+.project-body h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.project-body p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+
+/* ---------- Tampilan HP / layar kecil ---------- */
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .hero-inner { flex-direction: column; text-align: center; }
+  .hero-desc { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .tool-list { justify-content: center; flex-wrap: wrap; }
+  .name-badge { font-size: 30px; }
+
+  /* Navbar jadi hamburger: nav disembunyikan, muncul dropdown pas tombol diklik */
+  header { padding: 14px 20px; position: relative; }
+
+  .nav-toggle { display: flex; }
+
+  nav#siteNav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.3);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  nav#siteNav.open { max-height: 400px; }
+
+  nav#siteNav a {
+    margin-left: 0;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  nav#siteNav a.active { background: rgba(255,255,255,0.05); }
+}
+
+/* ============================================================
+   PENDIDIKAN (section id="education")
+============================================================ */
+
+.edu-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  border-left: 4px solid var(--blue-500);
+}
+
+.edu-period {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue-700);
+  background: var(--surface-tint);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.edu-item h3 {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  margin: 14px 0 2px;
+  color: var(--ink);
+}
+
+.edu-major { font-size: 14px; color: var(--blue-700); font-weight: 600; margin: 0 0 16px; }
+
+.edu-item p { font-size: 15px; color: var(--ink-soft); margin: 0 0 14px; text-align: left; }
+
+/* ============================================================
+   KONTAK (section id="contact")
+============================================================ */
+
+.contact-lead { color: var(--ink-soft); margin: 0 0 40px; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr; /* kiri: form, kanan: info kontak */
+  gap: 48px;
+}
+
+#contact form { display: flex; flex-direction: column; gap: 6px; }
+
+#contact label { font-size: 13px; font-weight: 600; color: var(--ink-faint); margin-top: 14px; }
+#contact label:first-child { margin-top: 0; }
+
+#contact input, #contact textarea {
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  background: var(--surface-tint);
+  color: var(--ink);
+}
+
+#contact input:focus, #contact textarea:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
+}
+
+#contact button {
+  margin-top: 22px;
+  padding: 14px;
+  border: none;
+  background: linear-gradient(135deg, var(--blue-700), var(--cyan-400));
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(29,78,216,0.3); }
+
+/* Daftar Email/WhatsApp/LinkedIn dsb di sebelah kanan form */
+.contact-info { border-left: 1px solid var(--border); padding-left: 40px; }
+
+.contact-info p { display: flex; flex-direction: column; gap: 2px; margin: 0 0 20px; }
+
+.contact-info span { font-size: 12px; color: var(--ink-faint); font-weight: 500; }
+
+.contact-info a { text-decoration: none; color: var(--ink); font-weight: 600; }
+
+.contact-info a:hover { color: var(--blue-700); }
+
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-info { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; }
+}
+
+/* ============================================================
+   FOOTER (paling bawah halaman)
+============================================================ */
+
+footer {
+  text-align: center;
+  padding: 36px 24px;
+  background: var(--navy);
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-nav { margin-top: 10px; }
+
+.footer-nav a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.footer-nav a:hover { color: var(--cyan-400); }

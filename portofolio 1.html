@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Safira Galuh Santoso — Portofolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================
+       NAVBAR (menu atas + nama/logo)
+       Ganti nama di .logo, atau tambah/hapus link di <nav>
+  ======================================================= -->
+  <header>
+    <div class="logo">kzkgaal_0231</div>
+
+    <!-- Tombol hamburger, cuma keliatan di layar HP (lihat media query di CSS) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="siteNav">
+      <a href="#home" class="active">Beranda</a>
+      <a href="#about">Tentang</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#projects">Proyek</a>
+      <a href="#education">Pendidikan</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <!-- ======================================================
+       HERO (bagian paling atas: foto, nama, deskripsi, tombol)
+       Ganti foto di src="galuh.jpg", teks nama ada di dalam h1.name-badge
+  ======================================================= -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-img">
+        <img src="foto formal.jpeg" alt="Foto Safira Galuh Santoso">
+      </div>
+      <div class="hero-text">
+        <p class="tag">🎓 Siswa Rekayasa Perangkat Lunak</p>
+        <h1 class="name-badge">Halo, saya Safira <span class="text-highlight">Galuh</span> Santoso</h1>
+        <p class="hero-desc">
+          Fokus pada pengembangan web dan perancangan antarmuka pengguna,
+          dengan minat besar mempelajari teknologi baru secara berkelanjutan.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
+          <a href="CV_Safira_Galuh_Santoso.pdf" class="btn btn-secondary" download>Unduh CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CONTENT SHEET: wadah putih untuk semua section di bawah hero
+       (Tentang, Keahlian, Proyek, Pendidikan, Kontak)
+  ======================================================= -->
+  <div class="content-sheet">
+
+  <!-- ---------- TENTANG SAYA ---------- -->
+  <section id="about">
+    <div class="section-inner">
+      <h2>Tentang Saya</h2>
+      <p>
+        Nama saya <strong>Safira Galuh Santoso</strong>, siswa jurusan
+        <strong>Rekayasa Perangkat Lunak (RPL)</strong>. Saya memiliki
+        ketertarikan besar pada bidang <strong>Web Development</strong> dan
+        <strong>UI/UX Design</strong>.
+      </p>
+      <p>
+        Bagi saya, dunia teknologi adalah sesuatu yang dinamis dan penuh
+        tantangan. Saya senang mempelajari hal baru, terutama membuat
+        situs web yang tidak hanya berfungsi dengan baik, tetapi juga
+        memiliki tampilan yang menarik.
+      </p>
+      <p>
+        Dalam proses belajar dan pengembangan proyek, saya terbiasa
+        menggunakan Visual Studio Code, Figma, dan Laragon. Ke depan, saya
+        berharap dapat terus mengembangkan keterampilan dan berkontribusi
+        di dunia teknologi.
+      </p>
+
+      <!-- Daftar tools/aplikasi yang dipakai (badge dengan ikon) -->
+      <ul class="tool-list">
+        <li>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code">
+          <span>Visual Studio Code</span>
+        </li>
+        <li>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+          <span>Figma</span>
+        </li>
+        <li>
+          <img src="https://www.svgrepo.com/show/330813/laragon.svg" alt="Laragon">
+          <span>Laragon</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ---------- KEAHLIAN (Hard Skills + Soft Skills) ---------- -->
+  <section id="skills">
+    <div class="section-inner">
+      <h2>Keahlian</h2>
+      <p class="skills-lead">Beberapa tools dan kemampuan yang saya kuasai selama belajar di jurusan RPL.</p>
+
+      <!-- Hard Skills: tiap kartu = 1 skill, tinggal copy-paste div.skill-card untuk nambah skill baru -->
+      <div class="skills-block">
+        <h3>Hard Skills</h3>
+
+        <div class="skill-cards">
+          <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="skill-icon">
+            <div class="skill-card-info">
+              <div class="skill-card-top">
+                <span class="skill-name">HTML</span>
+                <span class="skill-value">70%</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" style="width:70%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="skill-icon">
+            <div class="skill-card-info">
+              <div class="skill-card-top">
+                <span class="skill-name">CSS</span>
+                <span class="skill-value">60%</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="skill-icon">
+            <div class="skill-card-info">
+              <div class="skill-card-top">
+                <span class="skill-name">PHP</span>
+                <span class="skill-value">60%</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel" class="skill-icon">
+            <div class="skill-card-info">
+              <div class="skill-card-top">
+                <span class="skill-name">Laravel</span>
+                <span class="skill-value">80%</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-icon">
+            <div class="skill-card-info">
+              <div class="skill-card-top">
+                <span class="skill-name">MySQL</span>
+                <span class="skill-value">60%</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="skill-icon">
+            <div class="skill-card-info">
+              <div class="skill-card-top">
+                <span class="skill-name">Bootstrap</span>
+                <span class="skill-value">60%</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Skills: tinggal tambah/hapus <li> untuk ubah daftar -->
+      <div class="skills-block">
+        <h3>Soft Skills</h3>
+        <ul class="soft-skills">
+          <li>🤝 Kerja Tim</li>
+          <li>💬 Komunikasi</li>
+          <li>🧩 Problem Solving</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PROYEK ---------- -->
+  <!-- Tiap proyek = 1 <article class="project-card">, copy-paste blok ini untuk nambah proyek -->
+  <section id="projects">
+    <div class="section-inner">
+      <h2>Proyek</h2>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <img src="web porto.png" alt="Website Portofolio Sederhana" class="project-img">
+          <div class="project-body">
+            <h3>Website Portofolio Sederhana</h3>
+            <p>Proyek ini dibuat untuk tugas sekolah berupa website portofolio sederhana.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="port wordpress.png" alt="Portofolio WordPress Sederhana" class="project-img">
+          <div class="project-body">
+            <h3>Portofolio WordPress Sederhana</h3>
+            <p>Proyek ini dibuat untuk tugas sekolah berupa portofolio sederhana menggunakan WordPress.</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="ecuti-leaveflow.png" alt="Website eCuti LeaveFlow" class="project-img">
+          <div class="project-body">
+            <h3>Website eCuti (LeaveFlow)</h3>
+            <p>Dibuat saat PKL di Perpustakaan Jakarta dan Pusat Dokumentasi Sastra H.B. Jassin, berupa sistem pengajuan cuti pegawai berbasis web.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PENDIDIKAN ---------- -->
+  <section id="education">
+    <div class="section-inner">
+      <h2>Pendidikan</h2>
+      <div class="edu-item">
+        <span class="edu-period">2022 — Sekarang</span>
+        <h3>SMK Negeri 40 Jakarta</h3>
+        <p class="edu-major">Rekayasa Perangkat Lunak (RPL)</p>
+        <p>
+          Saat ini saya sedang menempuh pendidikan di SMK Negeri 40 Jakarta
+          pada jurusan Rekayasa Perangkat Lunak. Selama belajar di sini,
+          saya mendapatkan banyak ilmu seputar pemrograman, pengembangan
+          website, aplikasi berbasis desktop, dan konsep sistem basis data.
+        </p>
+        <p>
+          Selain pembelajaran teori, saya juga mengikuti berbagai praktik
+          langsung, seperti membuat aplikasi CRUD sederhana, membangun
+          website portofolio pribadi, hingga proyek kelompok yang melatih
+          kerja sama tim. Saya terbiasa menggunakan Visual Studio Code,
+          Figma, dan Laragon untuk mendukung proses belajar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- KONTAK ---------- -->
+  <section id="contact">
+    <div class="section-inner">
+      <h2>Kontak</h2>
+      <p class="contact-lead">Ingin bekerja sama? Silakan hubungi saya melalui formulir atau media sosial berikut.</p>
+
+      <div class="contact-grid">
+        <!-- Form ini belum terhubung ke server/email, baru tampilan saja -->
+        <form>
+          <label for="name">Nama</label>
+          <input id="name" type="text" placeholder="Nama lengkap" required>
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="nama@email.com" required>
+
+          <label for="message">Pesan</label>
+          <textarea id="message" placeholder="Tulis pesan Anda" rows="5" required></textarea>
+
+          <button type="submit">Kirim Pesan</button>
+        </form>
+
+        <!-- Info kontak & sosial media, edit link/teks di sini -->
+        <div class="contact-info">
+          <p><span>Email</span><a href="mailto:galuhsantoso29@gmail.com">galuhsg09@gmail.com</a></p>
+          <p><span>WhatsApp</span><a href="https://wa.me/6285775257579" target="_blank">+62 857-7525-7579</a></p>
+          <p><span>LinkedIn</span><a href="https://www.linkedin.com" target="_blank">linkedin.com</a></p>
+          <p><span>GitHub</span><a href="https://github.com/galuhsg09" target="_blank">github.com/galuhsg09</a></p>
+          <p><span>Instagram</span><a href="https://www.instagram.com/kidzz.gal?igsh=YWF5bWgxbmZpbnJw" target="_blank">@kidzz.gal</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+  <!-- akhir dari .content-sheet -->
+
+  <!-- ======================================================
+       FOOTER (paling bawah halaman)
+  ======================================================= -->
+  <footer>
+    <p>© 2025 Safira Galuh Santoso</p>
+    <nav class="footer-nav">
+      <a href="#home">Beranda</a>
+      <a href="#projects">Proyek</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </footer>
+
+  <!-- ======================================================
+       SEMUA JAVASCRIPT ada di file script.js (form kontak,
+       menu hamburger mobile, dan scrollspy navbar)
+  ======================================================= -->
+  <script src="script.js"></script>
+
+</body>
+</html>

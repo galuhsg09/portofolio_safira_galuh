@@ -348,33 +348,36 @@ section h2 {
 
 .skill-icon { width: 38px; height: 38px; flex-shrink: 0; }
 
-.skill-card-info { flex: 1; min-width: 0; }
-
-.skill-card-top {
+.skill-card-info {
+  flex: 1;
+  min-width: 0;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 8px;
+  align-items: center;
+  gap: 12px;
 }
 
 .skill-name { font-size: 14px; font-weight: 600; color: var(--ink); }
 
-/* Rel abu-abu progress bar */
-.skill-track {
-  height: 8px;
-  background: var(--border);
+/* Badge level skill (Menengah/Mahir) — ganti dari progress bar persentase
+   karena angka persentase kurang representatif/objektif */
+.skill-level {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
   border-radius: 999px;
-  overflow: hidden;
+  white-space: nowrap;
 }
 
-/* Isi progress bar — lebarnya diatur lewat style="width:70%" di HTML */
-.skill-fill {
-  height: 100%;
+.skill-level-menengah {
+  color: var(--blue-700);
+  background: var(--surface-tint);
+}
+
+.skill-level-mahir {
+  color: #fff;
   background: linear-gradient(90deg, var(--blue-500), var(--cyan-400));
-  border-radius: 999px;
 }
-
-.skill-value { font-size: 13px; font-weight: 700; color: var(--blue-700); }
 
 /* Badge Soft Skills (Kerja Tim, Komunikasi, dst) */
 .soft-skills {
@@ -412,7 +415,33 @@ section h2 {
   border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Kartu proyek unggulan (ditaruh pertama di grid): border biru + full-width di layar lebar */
+.project-featured {
+  border: 2px solid var(--blue-500);
+  box-shadow: 0 16px 34px rgba(29,78,216,0.14);
+}
+
+@media (min-width: 769px) {
+  .project-featured { grid-column: 1 / -1; }
+  .project-featured .project-img { aspect-ratio: 21/9; }
+}
+
+.project-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue-600);
+  padding: 6px 14px;
+  border-radius: 999px;
+  box-shadow: 0 8px 16px rgba(29,78,216,0.3);
 }
 
 .project-card:hover {
@@ -438,6 +467,24 @@ section h2 {
 }
 
 .project-body p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+
+/* Link opsional "Lihat Demo" / "Source Code" di tiap kartu proyek (lihat contoh di HTML) */
+.project-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.project-links a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-700);
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue-500);
+  padding-bottom: 1px;
+}
+
+.project-links a:hover { color: var(--blue-600); }
 
 /* ---------- Tampilan HP / layar kecil ---------- */
 @media (max-width: 768px) {

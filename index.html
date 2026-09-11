@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Safira Galuh Santoso — Portofolio</title>
+  <meta name="description" content="Portofolio Safira Galuh Santoso, siswa Rekayasa Perangkat Lunak SMK Negeri 40 Jakarta, fokus pada Web Development dan UI/UX Design.">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,12 +37,12 @@
 
   <!-- ======================================================
        HERO (bagian paling atas: foto, nama, deskripsi, tombol)
-       Ganti foto di src="galuh.jpg", teks nama ada di dalam h1.name-badge
+       Ganti foto di src="foto_formal.jpeg", teks nama ada di dalam h1.name-badge
   ======================================================= -->
   <section id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-img">
-        <img src="foto formal.jpeg" alt="Foto Safira Galuh Santoso">
+        <img src="foto_formal.jpeg" alt="Foto Safira Galuh Santoso">
       </div>
       <div class="hero-text">
         <p class="tag">🎓 Siswa Rekayasa Perangkat Lunak</p>
@@ -85,6 +87,11 @@
         berharap dapat terus mengembangkan keterampilan dan berkontribusi
         di dunia teknologi.
       </p>
+      <p>
+        Saat ini saya sedang mencari kesempatan <strong>magang/PKL</strong> di
+        bidang <strong>Web Development</strong>, untuk mengasah kemampuan
+        teknis sekaligus belajar langsung dari lingkungan kerja profesional.
+      </p>
 
       <!-- Daftar tools/aplikasi yang dipakai (badge dengan ikon) -->
       <ul class="tool-list">
@@ -114,70 +121,54 @@
       <div class="skills-block">
         <h3>Hard Skills</h3>
 
+        <!-- Level pakai kategori (Menengah/Mahir) bukan persentase angka,
+             biar gak keliatan terlalu spesifik/subjektif -->
         <div class="skill-cards">
           <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="skill-icon">
             <div class="skill-card-info">
-              <div class="skill-card-top">
-                <span class="skill-name">HTML</span>
-                <span class="skill-value">70%</span>
-              </div>
-              <div class="skill-track"><div class="skill-fill" style="width:70%"></div></div>
+              <span class="skill-name">HTML</span>
+              <span class="skill-level skill-level-menengah">Menengah</span>
             </div>
           </div>
 
           <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="skill-icon">
             <div class="skill-card-info">
-              <div class="skill-card-top">
-                <span class="skill-name">CSS</span>
-                <span class="skill-value">60%</span>
-              </div>
-              <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+              <span class="skill-name">CSS</span>
+              <span class="skill-level skill-level-menengah">Menengah</span>
             </div>
           </div>
 
           <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="skill-icon">
             <div class="skill-card-info">
-              <div class="skill-card-top">
-                <span class="skill-name">PHP</span>
-                <span class="skill-value">60%</span>
-              </div>
-              <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+              <span class="skill-name">PHP</span>
+              <span class="skill-level skill-level-menengah">Menengah</span>
             </div>
           </div>
 
           <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel" class="skill-icon">
             <div class="skill-card-info">
-              <div class="skill-card-top">
-                <span class="skill-name">Laravel</span>
-                <span class="skill-value">80%</span>
-              </div>
-              <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+              <span class="skill-name">Laravel</span>
+              <span class="skill-level skill-level-mahir">Mahir</span>
             </div>
           </div>
 
           <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-icon">
             <div class="skill-card-info">
-              <div class="skill-card-top">
-                <span class="skill-name">MySQL</span>
-                <span class="skill-value">60%</span>
-              </div>
-              <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+              <span class="skill-name">MySQL</span>
+              <span class="skill-level skill-level-menengah">Menengah</span>
             </div>
           </div>
 
           <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="skill-icon">
             <div class="skill-card-info">
-              <div class="skill-card-top">
-                <span class="skill-name">Bootstrap</span>
-                <span class="skill-value">60%</span>
-              </div>
-              <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+              <span class="skill-name">Bootstrap</span>
+              <span class="skill-level skill-level-menengah">Menengah</span>
             </div>
           </div>
         </div>
@@ -196,33 +187,62 @@
   </section>
 
   <!-- ---------- PROYEK ---------- -->
-  <!-- Tiap proyek = 1 <article class="project-card">, copy-paste blok ini untuk nambah proyek -->
+  <!-- Tiap proyek = 1 <article class="project-card">, copy-paste blok ini untuk nambah proyek.
+       Tambahkan link demo/repo di dalam .project-links kalau ada. -->
   <section id="projects">
     <div class="section-inner">
       <h2>Proyek</h2>
 
       <div class="projects-grid">
-        <article class="project-card">
-          <img src="web porto.png" alt="Website Portofolio Sederhana" class="project-img">
-          <div class="project-body">
-            <h3>Website Portofolio Sederhana</h3>
-            <p>Proyek ini dibuat untuk tugas sekolah berupa website portofolio sederhana.</p>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="port wordpress.png" alt="Portofolio WordPress Sederhana" class="project-img">
-          <div class="project-body">
-            <h3>Portofolio WordPress Sederhana</h3>
-            <p>Proyek ini dibuat untuk tugas sekolah berupa portofolio sederhana menggunakan WordPress.</p>
-          </div>
-        </article>
-
-        <article class="project-card">
+        <!-- Proyek unggulan ditaruh paling pertama -->
+        <article class="project-card project-featured">
+          <span class="project-badge">Proyek Unggulan</span>
           <img src="ecuti-leaveflow.png" alt="Website eCuti LeaveFlow" class="project-img">
           <div class="project-body">
             <h3>Website eCuti (LeaveFlow)</h3>
-            <p>Dibuat saat PKL di Perpustakaan Jakarta dan Pusat Dokumentasi Sastra H.B. Jassin, berupa sistem pengajuan cuti pegawai berbasis web.</p>
+            <p>
+              Dibuat saat PKL di Perpustakaan Jakarta dan Pusat Dokumentasi Sastra
+              H.B. Jassin, berupa sistem pengajuan cuti pegawai berbasis web.
+              Dibangun dengan <strong>Laravel</strong>, <strong>MySQL</strong>,
+              dan <strong>Bootstrap</strong>. Saya berperan dalam membangun alur
+              pengajuan dan persetujuan cuti untuk beberapa peran pengguna
+              (pegawai, atasan, admin), termasuk menangani validasi status
+              pengajuan dan tampilan riwayat cuti — tantangan utamanya adalah
+              merancang alur approval multi-role agar tetap sederhana dipakai.
+            </p>
+            <!-- Proyek internal instansi, belum ada demo/repo publik -->
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="port_wordpress.png" alt="Portofolio WordPress Sederhana" class="project-img">
+          <div class="project-body">
+            <h3>Portofolio WordPress Sederhana</h3>
+            <p>
+              Proyek ini dibuat untuk tugas sekolah berupa portofolio pribadi
+              menggunakan <strong>WordPress</strong>. Saya mengerjakan sendiri
+              mulai dari pemilihan tema, kustomisasi tampilan, hingga penyusunan
+              konten halaman — fokus melatih cara kerja CMS di luar coding manual.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="web_porto.png" alt="Website Portofolio Sederhana" class="project-img">
+          <div class="project-body">
+            <h3>Website Portofolio Sederhana</h3>
+            <p>
+              Proyek ini dibuat untuk tugas sekolah berupa website portofolio
+              sederhana, dibangun dari nol menggunakan <strong>HTML</strong> dan
+              <strong>CSS</strong> murni tanpa framework, untuk melatih dasar
+              tata letak (layout) dan responsivitas.
+            </p>
+            <div class="project-links">
+              <a href="https://galuhsg09.github.io/Web-portofolio-sederhana/portofolio%201.html" target="_blank" rel="noopener noreferrer">Lihat Demo</a>
+              <!-- Kalau proyek ini punya repo publik di GitHub, tambahkan link source code di sini:
+              <a href="URL_REPO_ANDA" target="_blank" rel="noopener noreferrer">Source Code</a>
+              -->
+            </div>
           </div>
         </article>
       </div>
@@ -234,7 +254,7 @@
     <div class="section-inner">
       <h2>Pendidikan</h2>
       <div class="edu-item">
-        <span class="edu-period">2022 — Sekarang</span>
+        <span class="edu-period">2024 — Sekarang</span>
         <h3>SMK Negeri 40 Jakarta</h3>
         <p class="edu-major">Rekayasa Perangkat Lunak (RPL)</p>
         <p>
@@ -261,7 +281,9 @@
       <p class="contact-lead">Ingin bekerja sama? Silakan hubungi saya melalui formulir atau media sosial berikut.</p>
 
       <div class="contact-grid">
-        <!-- Form ini belum terhubung ke server/email, baru tampilan saja -->
+        <!-- Form ini belum terhubung ke server/email, baru tampilan saja.
+             Untuk mengaktifkan tanpa backend sendiri, bisa pakai Formspree atau EmailJS:
+             ganti atribut action="" di bawah dengan endpoint dari layanan tersebut. -->
         <form>
           <label for="name">Nama</label>
           <input id="name" type="text" placeholder="Nama lengkap" required>
@@ -275,13 +297,15 @@
           <button type="submit">Kirim Pesan</button>
         </form>
 
-        <!-- Info kontak & sosial media, edit link/teks di sini -->
+        <!-- Info kontak & sosial media, edit link/teks di sini.
+             LinkedIn sengaja dihilangkan karena belum ada profil LinkedIn.
+             Kalau nanti sudah punya akun, tambahkan kembali barisnya, contoh:
+             <p><span>LinkedIn</span><a href="https://www.linkedin.com/in/username-anda" target="_blank" rel="noopener noreferrer">linkedin.com/in/username-anda</a></p> -->
         <div class="contact-info">
-          <p><span>Email</span><a href="mailto:galuhsantoso29@gmail.com">galuhsg09@gmail.com</a></p>
-          <p><span>WhatsApp</span><a href="https://wa.me/6285775257579" target="_blank">+62 857-7525-7579</a></p>
-          <p><span>LinkedIn</span><a href="https://www.linkedin.com" target="_blank">linkedin.com</a></p>
-          <p><span>GitHub</span><a href="https://github.com/galuhsg09" target="_blank">github.com/galuhsg09</a></p>
-          <p><span>Instagram</span><a href="https://www.instagram.com/kidzz.gal?igsh=YWF5bWgxbmZpbnJw" target="_blank">@kidzz.gal</a></p>
+          <p><span>Email</span><a href="mailto:galuhsg09@gmail.com">galuhsg09@gmail.com</a></p>
+          <p><span>WhatsApp</span><a href="https://wa.me/6285775257579" target="_blank" rel="noopener noreferrer">+62 857-7525-7579</a></p>
+          <p><span>GitHub</span><a href="https://github.com/galuhsg09" target="_blank" rel="noopener noreferrer">github.com/galuhsg09</a></p>
+          <p><span>Instagram</span><a href="https://www.instagram.com/kidzz.gal?igsh=YWF5bWgxbmZpbnJw" target="_blank" rel="noopener noreferrer">@kidzz.gal</a></p>
         </div>
       </div>
     </div>
